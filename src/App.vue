@@ -1,17 +1,67 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <section>
+    <header>
+      <h2>To-Do List</h2>
+    </header>
+    <div>
+      <new-task></new-task>
+      <ul>
+        <task-list
+          v-for="task in tasks"
+          :key="task.id"
+          :id="task.id"
+          :task="task.task"
+          :status="task.status"
+          @delete="deleteTask"
+        ></task-list>
+      </ul>
+    </div>
+  </section>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NewTask from "./components/NewTask.vue";
+import TaskList from "./components/TaskList.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    NewTask,
+    TaskList,
+  },
+  data() {
+    return {
+      tasks: [
+        {
+          id: "course",
+          task: "Complete the Vue.js Udemy course",
+          status: true,
+        },
+        {
+          id: "project",
+          task: "Complete first Vue.js project",
+          status: false,
+        },
+      ],
+    };
+  },
+  methods: {
+    deleteTask(taskId) {
+      this.tasks = this.tasks.filter((task) => task.id !== taskId);
+    },
+    addTask(task) {
+      const newTask = {
+        task: task,
+      };
+      this.tasks.unshift(newTask);
+    },
+  },
+  provide() {
+    return {
+      addTask: this.addTask,
+    };
+  },
+};
 </script>
 
 <style>
