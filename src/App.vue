@@ -42,6 +42,11 @@ export default {
           task: "Complete first Vue.js project",
           status: false,
         },
+        {
+          id: "review",
+          task: "Review notes",
+          status: false,
+        },
       ],
     };
   },
