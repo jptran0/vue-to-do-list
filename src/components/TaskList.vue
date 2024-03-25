@@ -1,6 +1,8 @@
 <template>
   <li>
-    <p @click="toggleStatus">{{ task }} {{ status ? "Done" : "" }}</p>
+    <p @click="toggleStatus" :class="['task-item', { completed: status }]">
+      {{ status ? "✔ " : "" }}{{ task }}
+    </p>
     <button @click="deleteTask(id)">X</button>
   </li>
 </template>
@@ -35,5 +37,15 @@ button {
 }
 li {
   list-style: none;
+}
+.task-item {
+  width: calc(100% - 32px);
+  height: 70px;
+  margin: 16px;
+  border: 2px solid #ccc;
+}
+.completed {
+  color: green;
+  text-decoration: line-through;
 }
 </style>
