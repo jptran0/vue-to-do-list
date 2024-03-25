@@ -12,7 +12,6 @@
           :id="task.id"
           :task="task.task"
           :status="task.status"
-          @delete="deleteTask"
         ></task-list>
       </ul>
     </div>
@@ -52,13 +51,12 @@ export default {
   },
   methods: {
     deleteTask(taskId) {
-      // this.tasks = this.tasks.filter((task) => task.id !== taskId);
       const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
       this.tasks.splice(taskIndex, 1);
     },
     addTask(task) {
       const newTask = {
-        id: new Date().toISOString,
+        id: new Date().toISOString(),
         task: task,
       };
       this.tasks.unshift(newTask);
