@@ -1,7 +1,7 @@
 <template>
   <li>
     <p>{{ task }}</p>
-    <button @click="$emit('delete', id)">X</button>
+    <button @click="deleteTask(id)">X</button>
   </li>
 </template>
 
@@ -20,7 +20,7 @@ export default {
       default: false,
     },
   },
-  emits: ["delete"],
+  inject: ["deleteTask"],
 };
 </script>
 
