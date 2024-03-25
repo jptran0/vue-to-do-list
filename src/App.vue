@@ -12,6 +12,7 @@
           :id="task.id"
           :task="task.task"
           :status="task.status"
+          @toggle-status="toggleStatus"
         ></task-list>
       </ul>
     </div>
@@ -34,7 +35,7 @@ export default {
         {
           id: "course",
           task: "Complete the Vue.js Udemy course",
-          status: true,
+          status: false,
         },
         {
           id: "project",
@@ -51,6 +52,7 @@ export default {
   },
   methods: {
     deleteTask(taskId) {
+      // todos = todos.filter((x) => x.id !== todoId);
       const taskIndex = this.tasks.findIndex((task) => task.id === taskId);
       this.tasks.splice(taskIndex, 1);
     },
@@ -60,6 +62,10 @@ export default {
         task: task,
       };
       this.tasks.unshift(newTask);
+    },
+    toggleStatus(taskId) {
+      const identifiedTask = this.tasks.find((task) => task.id === taskId);
+      identifiedTask.status = !identifiedTask.status;
     },
   },
   provide() {

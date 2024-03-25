@@ -1,6 +1,6 @@
 <template>
   <li>
-    <p>{{ task }}</p>
+    <p @click="toggleStatus">{{ task }} {{ status ? "Done" : "" }}</p>
     <button @click="deleteTask(id)">X</button>
   </li>
 </template>
@@ -21,6 +21,11 @@ export default {
     },
   },
   inject: ["deleteTask"],
+  methods: {
+    toggleStatus() {
+      this.$emit("toggle-status", this.id);
+    },
+  },
 };
 </script>
 
