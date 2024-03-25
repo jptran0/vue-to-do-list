@@ -11,17 +11,13 @@
 
 <script>
 export default {
-  data() {
-    return {
-      task: "",
-    };
-  },
   methods: {
     submitTask() {
       const newTask = this.$refs.inputTask.value;
       if (newTask.trim() !== "") {
         this.addTask(newTask);
       }
+      this.$refs.inputTask.value = "";
     },
   },
   inject: ["addTask"],
