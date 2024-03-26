@@ -99,4 +99,8 @@ section {
   margin: 2rem auto;
   max-width: 50%;
 }
+ul {
+  padding-left: 10px;
+  justify-content: center;
+}
 </style>

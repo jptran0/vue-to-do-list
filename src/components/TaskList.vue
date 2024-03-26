@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <li :class="['task-item', { completed: status }]">
-      <p @click="toggleStatus">{{ status ? "✔ " : "" }}{{ task }}</p>
-      <button @click="deleteTask(id)">x</button>
-    </li>
-  </div>
+  <li :class="['task-item', { completed: status }]">
+    <p @click="toggleStatus">{{ status ? "✔ " : "" }}{{ task }}</p>
+    <button @click="deleteTask(id)">x</button>
+  </li>
 </template>
 
 <script>
@@ -33,6 +31,11 @@ export default {
 
 <style scoped>
 button {
+  border-radius: 25px;
+  border: 1.5px solid rgb(231, 50, 50);
+  background-color: #fff;
+  cursor: pointer;
+  overflow: hidden;
   color: red;
 }
 li {
