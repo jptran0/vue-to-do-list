@@ -57,6 +57,7 @@ li {
 }
 p {
   margin: 10px;
+  cursor: pointer;
 }
 button {
   margin: 10px;
