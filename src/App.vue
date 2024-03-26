@@ -78,6 +78,12 @@ export default {
 </script>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -85,5 +91,12 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+section {
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
+  margin: 2rem auto;
+  max-width: 50%;
 }
 </style>
