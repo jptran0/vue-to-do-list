@@ -12,7 +12,6 @@
           :id="task.id"
           :task="task.task"
           :status="task.status"
-          @toggle-status="toggleStatus"
         ></task-list>
       </ul>
     </div>
