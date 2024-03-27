@@ -1,6 +1,8 @@
 <template>
-  <li :class="['task-item', { completed: status }]">
-    <p @click="toggleStatus(id)">{{ status ? "✔ " : "" }}{{ task }}</p>
+  <li class="task-item">
+    <p @click="toggleStatus(id)" :class="{ completed: status }">
+      {{ status ? "✔ " : "" }}{{ task }}
+    </p>
     <button @click="deleteTask(id)">x</button>
   </li>
 </template>
