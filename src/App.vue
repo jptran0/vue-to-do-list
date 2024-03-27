@@ -72,6 +72,7 @@ export default {
     return {
       addTask: this.addTask,
       deleteTask: this.deleteTask,
+      toggleStatus: this.toggleStatus,
     };
   },
 };
